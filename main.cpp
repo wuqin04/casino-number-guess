@@ -1,32 +1,29 @@
 #include "Random.h"
 #include "Data.h"
+#include "Settings.h"
 
 #include <iostream>
 #include <limits>
 
 //Game Settings
-namespace Settings{
-    enum Difficulty: int{
-        easy = 1,
-        medium = 2,
-        hard = 3,
-
-        max_diff
-    };
-
-    void clearBuffer() {
-        std::cin.clear();
-        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-    }
-}
-
-//ask user to input the bet amount
-void bet(Data& data){
-
-}
 
 //update game
-void draw(Data& data) {}
+void draw(Data& data) {
+    data.setBet();
+
+    data.guess();
+
+    if (data.getGuess() == data.getNum()) {
+        std::cout << "You guessed the correct number! Here's your money.\n";
+        data.setMoney(data.getMoney() * 10);
+        data.printMoney();
+    }
+    else {
+        std::cout << "The correct number was: " << data.getNum() << '\n';
+        data.setMoney(data.getMoney() - data.getBet());
+        data.printMoney();
+    }
+}
 
 void chooseDiff(Data& data) {
     int choose{};
@@ -84,7 +81,8 @@ int main() {
 
     while (data.getMoney()) {
         draw(data);
-        bet(data);
     }
+
+    std::cout << "Game Over! You don't have any more money.";
     //std::cout << data.getNum();
 }
