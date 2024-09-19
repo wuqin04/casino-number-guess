@@ -9,7 +9,7 @@
   <li>does not randomize the number even after guessing the number. The number will remain the same when the code is running.</li>
 </ul>
 
-<h3><ins>Milestones</ins></h3>
+<h3><ins>Milestone</ins></h3>
 <ul>
   <li>Completed in 19/9/2024</li>
 </ul>
