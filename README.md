@@ -1,1 +1,1 @@
-<h> Simple CLI-based Casino Number Guessing Game</h>
+<title> Simple CLI-based Casino Number Guessing Game</title>
